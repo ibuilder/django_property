@@ -1,6 +1,5 @@
 Django>=2.1,<2.2
 Pillow
 django-debug-toolbar
-django-mptt
-django_compressor
 djangorestframework
+pscopg2-binary

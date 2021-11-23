@@ -22,6 +22,4 @@ urlpatterns = [
     # path('api/', include(router.urls)),  # see http://www.django-rest-framework.org/#example
     # path('api-browse/', include('rest_framework.urls'))
     
-    
-    
 ]
