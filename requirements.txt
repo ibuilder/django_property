@@ -4,3 +4,4 @@ django-debug-toolbar
 django-mptt
 django_compressor
 djangorestframework
+psycopg2-binary
