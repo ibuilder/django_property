@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+    <head>
+        <title>Index - Property Database</title>
+        <link rel="stylesheet" href="{% static 'property/css/bootstrap.min.css' %}" >
+        <script src="{% static 'property/js/bootstrap.min.js' %}" ></script>
+    </head>
+    <div class="container">
+        <h1>Property Database</h1>
+
+        {% if 'edit' in message %}
+            <div class="alert alert-success" role="alert">
+                Property #{{ message_id }} saved with success!
+            </div>
+        {% endif %}
+
+        {% if 'delete' in message %}
+            <div class="alert alert-danger" role="alert">
+                Property #{{ message_id }} deleted with success!
+            </div>
+        {% endif %}
+
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>#</th><th>Address</th><th>City</th><th>State</th><th>Zip Code</th><th>Edit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for property in properties %}
+                <tr>
+                    <th>{{ property.id }}</th>
+                    <td>{{ property.address }}</td>
+                    <td>{{ property.city }}</td>
+                    <td>{{ property.state }}</td>
+                    <td>{{ property.zipcode }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'property_view' property.id %}">View</a>
+                        <a class="btn btn-warning" href="{% url 'property_edit' property.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'property_delete' property.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        <p><a class="btn btn-primary" href="{% url 'property_create' %}">Create New</a></p>
+    </div>
+</html>
